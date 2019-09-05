@@ -5,22 +5,14 @@
     <xs:element name="getProductRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name= "name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     <xs:element name="getProductResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="product" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="product" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="product">
-        <xs:sequence>
-            <xs:element name= "id" type="xs:long"/>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="cost" type="xs:int"/>
-        </xs:sequence>
-    </xs:complexType>
 </xs:schema>
