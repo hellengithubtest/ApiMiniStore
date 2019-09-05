@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://mycompany.com/product/schema"
-           xmlns:tns="http://mycompany.com/product/schema" elementFormDefault="qualified">
+           xmlns:tns="http://api.com/product/schema"
+           targetNamespace="http://api.com/product/schema" elementFormDefault="qualified">
     <xs:element name="getProductRequest">
         <xs:complexType>
             <xs:sequence>
@@ -12,7 +12,7 @@
     <xs:element name="getProductResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name= "products" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="product" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

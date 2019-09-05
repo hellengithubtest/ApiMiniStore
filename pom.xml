@@ -7,7 +7,6 @@
     <groupId>ApiMiniStore</groupId>
     <artifactId>ApiMiniStore</artifactId>
     <version>1.0-SNAPSHOT</version>
-        <packaging>war</packaging>
 
         <name>ApiMiniStore</name>
 
@@ -19,12 +18,15 @@
 
         <properties>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <maven.compiler.source>1.8</maven.compiler.source>
-            <maven.compiler.target>1.8</maven.compiler.target>
+            <maven.compiler.source>1.7</maven.compiler.source>
+            <maven.compiler.target>1.7</maven.compiler.target>
         </properties>
 
         <dependencies>
-
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web-services</artifactId>
+            </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -36,26 +38,14 @@
         </dependency>
 
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-batch</artifactId>
-                <version>2.1.4.RELEASE</version>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <scope>provided</scope>
             </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web-services</artifactId>
-            </dependency>
-
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
             </dependency>
-
-            <dependency>
-                <groupId>wsdl4j</groupId>
-                <artifactId>wsdl4j</artifactId>
-            </dependency>
-
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -67,49 +57,55 @@
                 <artifactId>lombok</artifactId>
                 <optional>true</optional>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
             <dependency>
                 <groupId>org.webjars</groupId>
                 <artifactId>jquery</artifactId>
                 <version>3.3.1-1</version>
             </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.webjars/popper.js -->
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>popper.js</artifactId>
-                <version>1.14.1</version>
-            </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
+                <scope>runtime</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
             </dependency>
-
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-dbcp2</artifactId>
                 <version>2.1.1</version>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-search-orm</artifactId>
+                <version>5.6.1.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.196</version>
+            </dependency>
+
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-test</artifactId>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <scope>provided</scope>
             </dependency>
         </dependencies>
 
@@ -118,6 +114,14 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>8</source>
+                        <target>8</target>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
