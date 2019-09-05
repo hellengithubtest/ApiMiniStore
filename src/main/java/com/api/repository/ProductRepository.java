@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    @Query("select p.name from ProductEntity p")
-    List<String> findAllNames();
 
+    List<ProductEntity> findByNameContainingIgnoreCase(String name);
 }

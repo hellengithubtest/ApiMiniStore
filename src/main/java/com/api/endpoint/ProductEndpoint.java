@@ -24,7 +24,14 @@ public class ProductEndpoint {
     @ResponsePayload
     public GetProductResponse getProduct(@RequestPayload GetProductRequest request) {
         GetProductResponse response = new GetProductResponse();
-        response.getProduct().addAll(serviceProduct.findAllNames());
+        response.setCount(serviceProduct.getCount());
+
+        if(!request.getName().isEmpty()) {
+            response.getProduct().addAll(serviceProduct.findByNameContainingIgnoreCase(request.getName()));
+            return response;
+        }
+        response.getProduct().addAll(serviceProduct.findAll());
         return response;
+
     }
 }
