@@ -14,7 +14,7 @@
         <parent>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.1.0.RELEASE</version>
+            <version>1.5.22.RELEASE</version>
         </parent>
 
         <properties>
@@ -24,20 +24,16 @@
         </properties>
 
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.hibernate.validator</groupId>
-                        <artifactId>hibernate-validator</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -54,6 +50,12 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
             </dependency>
+
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+            </dependency>
+
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -105,17 +107,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-taglibs</artifactId>
-                <version>5.0.7.RELEASE</version>
-            </dependency>
-
-            <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <scope>provided</scope>
@@ -123,19 +114,10 @@
         </dependencies>
 
         <build>
-            <finalName>ApiMiniStore</finalName>
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>8</source>
-                        <target>8</target>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -155,7 +137,7 @@
                         <clearOutputDir>false</clearOutputDir>
                         <sources>
                             <source>
-                                ${project.basedir}/src/main/resources/xsd/product.xsd
+                                ${project.basedir}/src/main/resources/product.xsd
                             </source>
                         </sources>
                     </configuration>

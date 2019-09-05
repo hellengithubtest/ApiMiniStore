@@ -1,6 +1,6 @@
 package com.api.repository;
 
-import com.api.products.Product;
+import com.mycompany.product.schema.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://api.com/products"
-           xmlns:tns="http://api.com/products" elementFormDefault="qualified">
-    <xs:element name="GetProductRequest">
+           targetNamespace="http://mycompany.com/product/schema"
+           xmlns:tns="http://mycompany.com/product/schema" elementFormDefault="qualified">
+    <xs:element name="getProductRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name= "name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="GetProductResponse">
+    <xs:element name="getProductResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name= "products" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
